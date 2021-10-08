@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JSON___Pokemon
 {
-    class PokeName
+    class PokemonName
     {
         public string name { get; set; }
         public string url { get; set; }

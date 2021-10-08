@@ -38,26 +38,40 @@ namespace JSON___Pokemon
 
         private void buttonFront_Click(object sender, RoutedEventArgs e)
         {
+            PokemonName poke = (PokemonName)listBox.SelectedItem;
 
+            using (var client = new HttpClient())
+            {
+                string jsonData = client.GetStringAsync(poke.url).Result;
+                PokemonInfo poki = JsonConvert.DeserializeObject<PokemonInfo>(jsonData);
+                imgBox.Source = new BitmapImage(new Uri(poki.sprites.front_default));
+            }
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
         {
+            PokemonName poke = (PokemonName)listBox.SelectedItem;
 
+            using (var client = new HttpClient())
+            {
+                string jsonData = client.GetStringAsync(poke.url).Result;
+                PokemonInfo poki = JsonConvert.DeserializeObject<PokemonInfo>(jsonData);
+                imgBox.Source = new BitmapImage(new Uri(poki.sprites.back_default));
+            }
         }
 
         private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            PokemonInfo pinfo = (PokemonInfo)listBox.SelectedItem;
+            PokemonName poke = (PokemonName)listBox.SelectedItem;
             
             using (var client = new HttpClient())
             {
-                string jsonData = client.GetStringAsync("").Result;
-                PokemonAPI poki = JsonConvert.DeserializeObject<PokemonAPI>(jsonData);
-
+                string jsonData = client.GetStringAsync(poke.url).Result;
+                PokemonInfo poki = JsonConvert.DeserializeObject<PokemonInfo>(jsonData);
+                imgBox.Source = new BitmapImage(new Uri(poki.sprites.front_default));
+                txtBlockHeight.Text = poki.height;
+                txtBlockWeight.Text = poki.weight;
             }
-            txtBlockHeight.Text = pinfo.height;
-            txtBlockWeight.Text = pinfo.weight;
         }
     }
 }
