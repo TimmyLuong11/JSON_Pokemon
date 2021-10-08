@@ -1,0 +1,23 @@
+﻿<Window x:Class="JSON___Pokemon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JSON___Pokemon"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="https://cdn.discordapp.com/attachments/859216013215924227/895167330030616646/Welcome_Back.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <ListBox x:Name="listBox" Margin="0,0,492,0" MouseDoubleClick="listBox_MouseDoubleClick" />
+        <Image x:Name="imgBox" HorizontalAlignment="Left" Height="179" Margin="400,29,0,0" VerticalAlignment="Top" Width="210"/>
+        <Button x:Name="buttonFront" Content="Front" HorizontalAlignment="Left" Margin="690,44,0,0" VerticalAlignment="Top" Click="buttonFront_Click"/>
+        <Button x:Name="buttonBack" Content="Back" HorizontalAlignment="Left" Margin="690,110,0,0" VerticalAlignment="Top" Click="buttonBack_Click"/>
+        <TextBlock x:Name="txtBlockHeight" HorizontalAlignment="Left" Margin="430,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89"/>
+        <TextBlock x:Name="txtBlockWeight" HorizontalAlignment="Left" Margin="591,340,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104"/>
+        <Label Content="Height" HorizontalAlignment="Left" Margin="442,309,0,0" VerticalAlignment="Top"/>
+        <Label Content="Weight" HorizontalAlignment="Left" Margin="592,309,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
